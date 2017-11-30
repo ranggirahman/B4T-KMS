@@ -47,8 +47,8 @@
 	      	</div>
 	    </div>
 
-	   	<div class="container">
-	   		<div class="row" style="padding-top: 50px;">
+	   	<div class="container" style="padding-top: 50px;">
+	   		<div class="row" >
 	   			<div class="col-sm-9">
 	   				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 					  	<div class="carousel-inner">
@@ -95,7 +95,7 @@
 				        	<i class="material-icons" style="font-size: 100px">local_library</i>
 				        	<hr>
 				        	<p class="card-text">Share Knowledge and Help Other Succeed</p>
-				        	<a href="#" class="btn btn-primary">File Library</a>
+				        	<a href="filelib.php?s=<?php echo "$s"?>" class="btn btn-primary">File Library</a>
 				      	</div>
 				    </div>
 				</div>
@@ -105,7 +105,7 @@
 				        	<i class="material-icons" style="font-size: 100px">ondemand_video</i>
 				        	<hr>
 				        	<p class="card-text">Connecting and Learn From Expert</p>
-				        	<a href="#" class="btn btn-primary">Learning</a>
+				        	<a href="learn.php?s=<?php echo "$s"?>" class="btn btn-primary">Learning</a>
 				      	</div>
 				    </div>
 				</div>
@@ -115,7 +115,7 @@
 				        	<i class="material-icons" style="font-size: 100px">group</i>
 				        	<hr>
 				        	<p class="card-text">Search and Follow Communities of Practice</p>
-				        	<a href="#" class="btn btn-primary">Forum</a>
+				        	<a href="forum.php?s=<?php echo "$s"?>" class="btn btn-primary">Forum</a>
 				      	</div>
 				    </div>
 				</div>
@@ -125,7 +125,7 @@
 				        	<i class="material-icons" style="font-size: 100px">find_in_page</i>
 				        	<hr>
 				        	<p class="card-text">Find Useful Content in the Knowledge</p>
-				        	<a href="#" class="btn btn-primary">Search</a>
+				        	<a href="search.php?s=<?php echo "$s"?>" class="btn btn-primary">Search</a>
 				      	</div>
 				    </div>
 				</div>
