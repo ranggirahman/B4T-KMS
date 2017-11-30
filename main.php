@@ -92,7 +92,7 @@
 			    <div class="col-sm-3">
 				    <div class="card text-center">
 				      	<div class="card-body">
-				        	<i class="material-icons" style="font-size: 100px">local_library</i>
+				        	<i class="material-icons" style="font-size: 100px; color: limegreen;">local_library</i>
 				        	<hr>
 				        	<p class="card-text">Share Knowledge and Help Other Succeed</p>
 				        	<a href="filelib.php?s=<?php echo "$s"?>" class="btn btn-primary">File Library</a>
@@ -102,7 +102,7 @@
 				<div class="col-sm-3">
 				    <div class="card text-center">
 				      	<div class="card-body">
-				        	<i class="material-icons" style="font-size: 100px">ondemand_video</i>
+				        	<i class="material-icons" style="font-size: 100px; color: mediumvioletred;">ondemand_video</i>
 				        	<hr>
 				        	<p class="card-text">Connecting and Learn From Expert</p>
 				        	<a href="learn.php?s=<?php echo "$s"?>" class="btn btn-primary">Learning</a>
@@ -112,7 +112,7 @@
 				<div class="col-sm-3">
 				    <div class="card text-center">
 				      	<div class="card-body">
-				        	<i class="material-icons" style="font-size: 100px">group</i>
+				        	<i class="material-icons" style="font-size: 100px; color: orange;">group</i>
 				        	<hr>
 				        	<p class="card-text">Search and Follow Communities of Practice</p>
 				        	<a href="forum.php?s=<?php echo "$s"?>" class="btn btn-primary">Forum</a>
@@ -122,7 +122,7 @@
 				<div class="col-sm-3">
 				    <div class="card text-center">
 				      	<div class="card-body">
-				        	<i class="material-icons" style="font-size: 100px">find_in_page</i>
+				        	<i class="material-icons" style="font-size: 100px; color: slateblue;">find_in_page</i>
 				        	<hr>
 				        	<p class="card-text">Find Useful Content in the Knowledge</p>
 				        	<a href="search.php?s=<?php echo "$s"?>" class="btn btn-primary">Search</a>
