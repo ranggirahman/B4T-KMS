@@ -1,0 +1,14 @@
+
+.fixed-bg {
+   	background-image: url("../img/homebg.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+   	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.material-icons {
+    display: inline-flex;
+    vertical-align: middle;
+}

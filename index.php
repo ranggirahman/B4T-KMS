@@ -10,20 +10,9 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
 	    <link rel="stylesheet" href="css/custom.min.css">
+	    <link rel="stylesheet" href="css/modification.css">
 	    <link href="css/jumbotron.css" rel="stylesheet">
-	    <link rel="icon" href="img/favicon.ico">
-
-	    <style type="text/css">
-      .fixed-bg {
-        background-image: url("img/homebg.jpg");
-        min-height: 500px;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-    	</style>
-
+	    <link rel="icon" href="img/favicon.ico">	   
 	    <title>Balai Besar Bahan dan Barang Teknik - KMS</title>
   	</head>
 
