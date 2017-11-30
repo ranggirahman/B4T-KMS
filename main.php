@@ -136,25 +136,3 @@
 
 	</body>
 </html>
-
-<?php
-  if(isset($_POST['submit'])){
-
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $c = mysqli_query($koneksi,"select count(username) from user where username='$username' and password='$password'");
-
-    $cr = mysqli_fetch_array($c);
-    $ci = $cr['count(username)'];
-
-    if( $ci == 1 ){
-        $co = $username;
-        $en = base64_encode($co);
-
-        header("Location: main.php?s=$en");
-    }else{
-    }
-
-  }
-?>
