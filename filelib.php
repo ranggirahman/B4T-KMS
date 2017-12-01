@@ -1,7 +1,7 @@
 <?php
-  include "koneksi.php";
+  	include "koneksi.php";
 
-  $s = $_GET['s'];
+  	$s = $_GET['s'];
 
  	$username = base64_decode($s);
  	$result = mysqli_query($koneksi,"select *from user where username='$username'");
@@ -35,7 +35,7 @@
 
 	        	<ul class="nav navbar-nav ml-auto">
 		            <li class="nav-item dropdown">
-					    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Rewards: <?php echo "$reward"; ?>&nbsp;&nbsp;&nbsp;<img src="user/profile/<?php echo $userid ?>.jpg?dummy=8484744" class="rounded-circle" height="25px" width="25px" onerror=this.src="img/default_profile.jpg"/></a>
+					    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Rewards: <?php echo "$reward"; ?>&nbsp;&nbsp;&nbsp;<img src="user/profile/<?php echo $userid ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="25px" width="25px" /></a>
 					    <div class="dropdown-menu">
 					    	<a class="dropdown-item disabled">Hi, <?php echo "$nama"; ?></a>
 					    	<div class="dropdown-divider"></div>
@@ -61,70 +61,70 @@
 		  	<div class="row">
 		  		<div class="col-sm-12">	 
 			  		<div class="card">
-					  <div class="card-body">
-					    <h4 class="card-title">Upload</h4>
-					    <form class="form-inline" enctype="multipart/form-data" action="filelib.php?s=<?php echo "$s"?>" method="POST">
-					    	<div class="row">
-					    		<div class="col-sm-5">
-					    			<label class="custom-file">
-									  	<input type="file" name="uploaded_file" class="custom-file-input">
-									  	<span class="custom-file-control"></span>
-									</label>
-					    		</div>
-					    		<div class="col-sm-7">
-					    			<div class="input-group">
-										<span class="input-group-addon" id="basic-addon1">Direktory File</span>
-								    	<select class="form-control" id="eventType" name="category">
-										  	<option value="1">Panduan Kerja</option>
-										  	<option value="2">Praktik Kerja</option>
-										  	<option value="3">Dokumentasi Kerja</option>
-										  	<option value="4">Dokumen Penelitian</option>
-										</select>
-								    	<input class="btn" type="submit" value="Upload"></input>
-									</div>	
-					    		</div>
-					    	</div>											    
-						</form>
-						<?php
-						  	if(!empty($_FILES['uploaded_file']))
-						  	{
-						  		$category = $_POST['category'];
-						  		if($category == '1'){
-							    	$path = "user/filelib/panduan_kerja/";
-						  		}if($category == '2'){
-						  			$path = "user/filelib/praktik_kerja/";
-						  		}if($category == '3'){
-						  			$path = "user/filelib/dokumentasi_kerja/";
-						  		}if($category == '4'){
-						  			$path = "user/filelib/dokumen_penelitian/";
-						  		}
+						<div class="card-body">
+						    <h4 class="card-title">Upload</h4>
+						    <form class="form-inline" enctype="multipart/form-data" action="filelib.php?s=<?php echo "$s"?>" method="POST">
+						    	<div class="row">
+						    		<div class="col-sm-5">
+						    			<label class="custom-file">
+										  	<input type="file" name="uploaded_file" class="custom-file-input">
+										  	<span class="custom-file-control"></span>
+										</label>
+						    		</div>
+						    		<div class="col-sm-7">
+						    			<div class="input-group">
+											<span class="input-group-addon" id="basic-addon1">Directory File</span>
+									    	<select class="form-control" id="eventType" name="category">
+											  	<option value="1">Panduan Kerja</option>
+											  	<option value="2">Praktik Kerja</option>
+											  	<option value="3">Dokumentasi Kerja</option>
+											  	<option value="4">Dokumen Penelitian</option>
+											</select>
+									    	<input class="btn" type="submit" value="Upload"></input>
+										</div>	
+						    		</div>
+						    	</div>											    
+							</form>
+							<?php
+							  	if(!empty($_FILES['uploaded_file']))
+							  	{
+							  		$category = $_POST['category'];
+							  		if($category == '1'){
+								    	$path = "user/filelib/panduan_kerja/";
+							  		}if($category == '2'){
+							  			$path = "user/filelib/praktik_kerja/";
+							  		}if($category == '3'){
+							  			$path = "user/filelib/dokumentasi_kerja/";
+							  		}if($category == '4'){
+							  			$path = "user/filelib/dokumen_penelitian/";
+							  		}
 
-							    $path = $path . basename( $_FILES['uploaded_file']['name']);
-							    if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
-							      	echo "	<br>
-							        		<div class='alert alert-success alert-dismissible fade show' role='alert'>
-											  	The file ".  basename( $_FILES['uploaded_file']['name'])." has been uploaded
-											  	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-											    	<span aria-hidden='true'>&times;</span>
-											  	</button>
-											</div>
-							      		";
+								    $path = $path . basename( $_FILES['uploaded_file']['name']);
+								    if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+								      	echo "	<br>
+								        		<div class='alert alert-success alert-dismissible fade show' role='alert'>
+												  	The file ".  basename( $_FILES['uploaded_file']['name'])." has been uploaded
+												  	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+												    	<span aria-hidden='true'>&times;</span>
+												  	</button>
+												</div>
+								      		";
 
-							      	$reward = $reward + 100;			      	
-							      	$result = mysqli_query($koneksi,"update user set reward='$reward' where userid='$userid'");
-							    } else{
-							        echo "	<br>
-							        		<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-											  	There was an error uploading the file, please try again!
-											  	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-											    	<span aria-hidden='true'>&times;</span>
-											  	</button>
-											</div>
-										";
-							    }
-						  	}
-						?>
-					  </div>
+								      	$reward = $reward + 100;			      	
+								      	$result = mysqli_query($koneksi,"update user set reward='$reward' where userid='$userid'");
+								    } else{
+								        echo "	<br>
+								        		<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+												  	There was an error uploading the file, please try again!
+												  	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+												    	<span aria-hidden='true'>&times;</span>
+												  	</button>
+												</div>
+											";
+								    }
+							  	}
+							?>
+						</div>
 					</div>
 				</div>
 		  	</div>
