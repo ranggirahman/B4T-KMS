@@ -7,7 +7,6 @@
  	$result = mysqli_query($koneksi,"select *from user where username='$username'");
 	$row = mysqli_fetch_array($result);
 
-	$userid = $row['userid'];
 	$nama = $row['nama'];
 	$reward = $row['reward'];
 ?>
@@ -35,7 +34,7 @@
 
 	        	<ul class="nav navbar-nav ml-auto">
 		            <li class="nav-item dropdown">
-					    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Rewards: <?php echo "$reward"; ?>&nbsp;&nbsp;&nbsp;<img src="user/profile/<?php echo $userid ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="25px" width="25px" /></a>
+					    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Rewards: <?php echo "$reward"; ?>&nbsp;&nbsp;&nbsp;<img src="user/profile/<?php echo $username ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="25px" width="25px" /></a>
 					    <div class="dropdown-menu">
 					    	<a class="dropdown-item disabled">Hi, <?php echo "$nama"; ?></a>
 					    	<div class="dropdown-divider"></div>

@@ -13,22 +13,23 @@
 
  	$result = mysqli_query($koneksi,"select *from user where username='$username'");
 	$row = mysqli_fetch_array($result);
-	$userid = $row['userid'];
 	$nama = $row['nama'];
 	$reward = $row['reward'];
 	
-	$result2 = mysqli_query($koneksi,"select *from learn where learntitle='$filenx'");
-	$row2 = mysqli_fetch_array($result2);
-	$owner = $row2['ownerid'];
-	$watch = $row2['watch'];
+	$result = mysqli_query($koneksi,"select *from learn where learntitle='$filenx'");
+	$row = mysqli_fetch_array($result);
+	$owner = $row['ownerid'];
+	$watch = $row['watch'];
 	$watch = $watch + 1;			      	
 	$result = mysqli_query($koneksi,"update learn set watch='$watch' where learntitle='$filenx'");
 
-	$result3 = mysqli_query($koneksi,"select *from user where username='$owner'");
-	$row3 = mysqli_fetch_array($result3);
-	$idowner = $row3['userid'];
-	$namaowner = $row3['nama'];
-	$divowner = $row3['division'];
+	$result = mysqli_query($koneksi,"select *from user where username='$owner'");
+	$row = mysqli_fetch_array($result);
+	$namaowner = $row['nama'];
+	$divowner = $row['division'];
+	$rewardowner = $row['reward'];
+	$rewardowner = $rewardowner + 1;			      	
+	$result = mysqli_query($koneksi,"update user set reward='$rewardowner' where username='$owner'");
 
 	$s = base64_encode($username);
 ?>
@@ -56,7 +57,7 @@
 
 	        	<ul class="nav navbar-nav ml-auto">
 		            <li class="nav-item dropdown">
-					    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Rewards: <?php echo "$reward"; ?>&nbsp;&nbsp;&nbsp;<img src="user/profile/<?php echo $userid ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="25px" width="25px" /></a>
+					    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Rewards: <?php echo "$reward"; ?>&nbsp;&nbsp;&nbsp;<img src="user/profile/<?php echo $username ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="25px" width="25px" /></a>
 					    <div class="dropdown-menu">
 					    	<a class="dropdown-item disabled">Hi, <?php echo "$nama"; ?></a>
 					    	<div class="dropdown-divider"></div>
@@ -91,7 +92,7 @@
 			  		<div class="card text-center">
 						<div class="card-body">
 						    <h4 class="card-title">Video By</h4>
-						   	<img src="user/profile/<?php echo $idowner ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle border border-warning" height="100px" width="100px" /></a>
+						   	<img src="user/profile/<?php echo $owner ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle border border-warning" height="100px" width="100px" /></a>
 						   	<br><br>
 							<h5><?php echo "$namaowner"; ?></h5>
 							<h5><?php echo "$divowner"; ?></h5>

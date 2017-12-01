@@ -7,7 +7,6 @@
  	$result = mysqli_query($koneksi,"select *from user where username='$username'");
 	$row = mysqli_fetch_array($result);
 
-	$userid = $row['userid'];
 	$nama = $row['nama'];
 	$reward = $row['reward'];
 ?>
@@ -35,7 +34,7 @@
 
 	        	<ul class="nav navbar-nav ml-auto">
 		            <li class="nav-item dropdown">
-					    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Rewards: <?php echo "$reward"; ?>&nbsp;&nbsp;&nbsp;<img src="user/profile/<?php echo $userid ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="25px" width="25px" /></a>
+					    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Rewards: <?php echo "$reward"; ?>&nbsp;&nbsp;&nbsp;<img src="user/profile/<?php echo $username ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="25px" width="25px" /></a>
 					    <div class="dropdown-menu">
 					    	<a class="dropdown-item disabled">Hi, <?php echo "$nama"; ?></a>
 					    	<div class="dropdown-divider"></div>
@@ -73,7 +72,7 @@
 						    		</div>
 						    		<div class="col-sm-7">
 						    			<div class="input-group">
-											<span class="input-group-addon" id="basic-addon1">Directory File</span>
+											<span class="input-group-addon" id="basic-addon1">File Directory</span>
 									    	<select class="form-control" id="eventType" name="category">
 											  	<option value="1">Panduan Kerja</option>
 											  	<option value="2">Praktik Kerja</option>
@@ -109,9 +108,11 @@
 												  	</button>
 												</div>
 								      		";
+								      	$files = basename( $_FILES['uploaded_file']['name']);
+								      	$result = mysqli_query($koneksi,"insert into filelib(filename,ownerid,download) values ('$files','$username','0')");
 
 								      	$reward = $reward + 100;			      	
-								      	$result = mysqli_query($koneksi,"update user set reward='$reward' where userid='$userid'");
+								      	$result = mysqli_query($koneksi,"update user set reward='$reward' where username='$username'");
 								    } else{
 								        echo "	<br>
 								        		<div class='alert alert-warning alert-dismissible fade show' role='alert'>
@@ -142,13 +143,29 @@
 						    </div>
 						    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
 						      	<div class="card-body">
+						      		<table class="table">
+						      			<tr>
+						      				<th>File Name</th>
+						      				<th>Uploaded By</th>
+						      			</tr>
 						      		<?php
 							        	$path = "user/filelib/panduan_kerja/";							        	
 										$files = array_diff(scandir($path), array('..', '.'));
 										foreach ($files as &$value) {
-										    echo "<a href='".$path."".$value."' target='_black' ><i class='material-icons' >book</i> ".$value."</a><br/>";
+											echo "<tr>";
+										    echo "<td width=70%'><a href='".$path."".$value."' target='_black' ><i class='material-icons' >book</i> ".$value."</a></td>";
+										    $result = mysqli_query($koneksi,"select *from filelib where filename='$value'");
+											$row = mysqli_fetch_array($result);
+											$ownerid = $row['ownerid'];
+											$result = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+											$row = mysqli_fetch_array($result);
+											$namaowner = $row['nama'];
+
+										    echo "<td>".$namaowner."</td>";
+										    echo "</tr>";
 										}
 									?>
+									</table>
 						      	</div>
 						    </div>
 						</div>
@@ -162,13 +179,29 @@
 					    	</div>
 						    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
 							    <div class="card-body">
-							       	<?php
+							       	<table class="table">
+						      			<tr>
+						      				<th>File Name</th>
+						      				<th>Uploaded By</th>
+						      			</tr>
+						      		<?php
 							        	$path = "user/filelib/praktik_kerja/";							        	
 										$files = array_diff(scandir($path), array('..', '.'));
 										foreach ($files as &$value) {
-										    echo "<a href='".$path."".$value."' target='_black' ><i class='material-icons' >book</i> ".$value."</a><br/>";
+											echo "<tr>";
+										    echo "<td width=70%'><a href='".$path."".$value."' target='_black' ><i class='material-icons' >book</i> ".$value."</a></td>";
+										    $result = mysqli_query($koneksi,"select *from filelib where filename='$value'");
+											$row = mysqli_fetch_array($result);
+											$ownerid = $row['ownerid'];
+											$result = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+											$row = mysqli_fetch_array($result);
+											$namaowner = $row['nama'];
+
+										    echo "<td>".$namaowner."</td>";
+										    echo "</tr>";
 										}
 									?>
+									</table>
 							    </div>
 						    </div>
 					  	</div>
@@ -182,13 +215,29 @@
 					    	</div>
 					    	<div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
 					      		<div class="card-body">
-					        		<?php
+					        		<table class="table">
+						      			<tr>
+						      				<th>File Name</th>
+						      				<th>Uploaded By</th>
+						      			</tr>
+						      		<?php
 							        	$path = "user/filelib/dokumentasi_kerja/";							        	
 										$files = array_diff(scandir($path), array('..', '.'));
 										foreach ($files as &$value) {
-										    echo "<a href='".$path."".$value."' target='_black' ><i class='material-icons' >book</i> ".$value."</a><br/>";
+											echo "<tr>";
+										    echo "<td width=70%'><a href='".$path."".$value."' target='_black' ><i class='material-icons' >book</i> ".$value."</a></td>";
+										    $result = mysqli_query($koneksi,"select *from filelib where filename='$value'");
+											$row = mysqli_fetch_array($result);
+											$ownerid = $row['ownerid'];
+											$result = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+											$row = mysqli_fetch_array($result);
+											$namaowner = $row['nama'];
+
+										    echo "<td>".$namaowner."</td>";
+										    echo "</tr>";
 										}
-									?> 
+									?>
+									</table>
 					    		</div>
 					  		</div>
 						</div>
@@ -202,13 +251,29 @@
 					    	</div>
 					    	<div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
 					      		<div class="card-body">
-					        		<?php
+					        		<table class="table">
+						      			<tr>
+						      				<th>File Name</th>
+						      				<th>Uploaded By</th>
+						      			</tr>
+						      		<?php
 							        	$path = "user/filelib/dokumen_penelitian/";							        	
 										$files = array_diff(scandir($path), array('..', '.'));
 										foreach ($files as &$value) {
-										    echo "<a href='".$path."".$value."' target='_black' ><i class='material-icons' >book</i> ".$value."</a><br/>";
+											echo "<tr>";
+										    echo "<td width=70%'><a href='".$path."".$value."' target='_black' ><i class='material-icons' >book</i> ".$value."</a></td>";
+										    $result = mysqli_query($koneksi,"select *from filelib where filename='$value'");
+											$row = mysqli_fetch_array($result);
+											$ownerid = $row['ownerid'];
+											$result = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+											$row = mysqli_fetch_array($result);
+											$namaowner = $row['nama'];
+
+										    echo "<td>".$namaowner."</td>";
+										    echo "</tr>";
 										}
-									?> 
+									?>
+									</table>
 					    		</div>
 					  		</div>
 						</div>

@@ -7,7 +7,6 @@
  	$result = mysqli_query($koneksi,"select *from user where username='$username'");
 	$row = mysqli_fetch_array($result);
 
-	$userid = $row['userid'];
 	$nama = $row['nama'];
 	$reward = $row['reward'];
 
@@ -37,7 +36,7 @@
 
 	        	<ul class="nav navbar-nav ml-auto">
 		            <li class="nav-item dropdown">
-					    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Rewards: <?php echo "$reward"; ?>&nbsp;&nbsp;&nbsp;<img src="user/profile/<?php echo $userid ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="25px" width="25px" /></a>
+					    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Rewards: <?php echo "$reward"; ?>&nbsp;&nbsp;&nbsp;<img src="user/profile/<?php echo $username ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="25px" width="25px" /></a>
 					    <div class="dropdown-menu">
 					    	<a class="dropdown-item disabled">Hi, <?php echo "$nama"; ?></a>
 					    	<div class="dropdown-divider"></div>
@@ -108,8 +107,8 @@
 								      	$filenx = preg_replace("/\.[^.]+$/", "", $files);
 								      	$result = mysqli_query($koneksi,"insert into learn(learntitle,ownerid,watch) values ('$filenx','$username','0')");
 
-								      	$reward = $reward + 100;			      	
-								      	$result = mysqli_query($koneksi,"update user set reward='$reward' where userid='$userid'");
+								      	$reward = $reward + 250;			      	
+								      	$result = mysqli_query($koneksi,"update user set reward='$reward' where username='$username'");
 								    } else{
 								        echo "	<br><br>
 								        		<div class='alert alert-warning alert-dismissible fade show' role='alert'>
@@ -137,6 +136,12 @@
 						    </div>
 						    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
 						      	<div class="card-body">
+						      		<table class="table">
+						      			<tr>
+						      				<th>File Name</th>
+						      				<th>Uploaded By</th>
+						      				<th>View</th>
+						      			</tr>
 						      		<?php
 							        	$path = "user/learn/panduan_kerja/";			        	
 										$files = array_diff(scandir($path), array('..', '.'));	
@@ -146,9 +151,22 @@
 											$tmpvalue = $username.'&'.$path.$value;
 											$envalue = base64_encode($tmpvalue);
 											$link = 'watch.php?s='.$envalue;
-										    echo "<a href='$link'><i class='material-icons' >video_library</i> ".$filenx."</a><br/>";
+											echo "<tr>";
+										    echo "<td width=70%'><a href='$link'><i class='material-icons' >video_library</i> ".$filenx."</a></td>";
+										    $result = mysqli_query($koneksi,"select *from learn where learntitle='$filenx'");
+											$row = mysqli_fetch_array($result);
+											$ownerid = $row['ownerid'];
+											$view = $row['watch'];
+											$result = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+											$row = mysqli_fetch_array($result);
+											$namaowner = $row['nama'];
+
+										    echo "<td>".$namaowner."</td>";
+										    echo "<td>".$view."</td>";
+										    echo "</tr>";
 										}
 									?>
+									</table>
 						      	</div>
 						    </div>
 						</div>
@@ -162,7 +180,13 @@
 					    	</div>
 						    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
 							    <div class="card-body">
-							       	<?php
+							       	<table class="table">
+						      			<tr>
+						      				<th>File Name</th>
+						      				<th>Uploaded By</th>
+						      				<th>View</th>
+						      			</tr>
+						      		<?php
 							        	$path = "user/learn/praktik_kerja/";			        	
 										$files = array_diff(scandir($path), array('..', '.'));	
 
@@ -171,9 +195,22 @@
 											$tmpvalue = $username.'&'.$path.$value;
 											$envalue = base64_encode($tmpvalue);
 											$link = 'watch.php?s='.$envalue;
-										    echo "<a href='$link'><i class='material-icons' >video_library</i> ".$filenx."</a><br/>";
+											echo "<tr>";
+										    echo "<td width=70%'><a href='$link'><i class='material-icons' >video_library</i> ".$filenx."</a></td>";
+										    $result = mysqli_query($koneksi,"select *from learn where learntitle='$filenx'");
+											$row = mysqli_fetch_array($result);
+											$ownerid = $row['ownerid'];
+											$view = $row['watch'];
+											$result = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+											$row = mysqli_fetch_array($result);
+											$namaowner = $row['nama'];
+
+										    echo "<td>".$namaowner."</td>";
+										    echo "<td>".$view."</td>";
+										    echo "</tr>";
 										}
 									?>
+									</table>
 							    </div>
 						    </div>
 					  	</div>
@@ -187,7 +224,13 @@
 					    	</div>
 					    	<div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
 					      		<div class="card-body">
-					        		<?php
+					        		<table class="table">
+						      			<tr>
+						      				<th>File Name</th>
+						      				<th>Uploaded By</th>
+						      				<th>View</th>
+						      			</tr>
+						      		<?php
 							        	$path = "user/learn/dokumentasi_kerja/";			        	
 										$files = array_diff(scandir($path), array('..', '.'));	
 
@@ -196,9 +239,22 @@
 											$tmpvalue = $username.'&'.$path.$value;
 											$envalue = base64_encode($tmpvalue);
 											$link = 'watch.php?s='.$envalue;
-										    echo "<a href='$link'><i class='material-icons' >video_library</i> ".$filenx."</a><br/>";
+											echo "<tr>";
+										    echo "<td width=70%'><a href='$link'><i class='material-icons' >video_library</i> ".$filenx."</a></td>";
+										    $result = mysqli_query($koneksi,"select *from learn where learntitle='$filenx'");
+											$row = mysqli_fetch_array($result);
+											$ownerid = $row['ownerid'];
+											$view = $row['watch'];
+											$result = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+											$row = mysqli_fetch_array($result);
+											$namaowner = $row['nama'];
+
+										    echo "<td>".$namaowner."</td>";
+										    echo "<td>".$view."</td>";
+										    echo "</tr>";
 										}
 									?>
+									</table>
 					    		</div>
 					  		</div>
 						</div>
@@ -212,7 +268,13 @@
 					    	</div>
 					    	<div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
 					      		<div class="card-body">
-					        		<?php
+					        		<table class="table">
+						      			<tr>
+						      				<th>File Name</th>
+						      				<th>Uploaded By</th>
+						      				<th>View</th>
+						      			</tr>
+						      		<?php
 							        	$path = "user/learn/dokumen_penelitian/";			        	
 										$files = array_diff(scandir($path), array('..', '.'));	
 
@@ -221,9 +283,22 @@
 											$tmpvalue = $username.'&'.$path.$value;
 											$envalue = base64_encode($tmpvalue);
 											$link = 'watch.php?s='.$envalue;
-										    echo "<a href='$link'><i class='material-icons' >video_library</i> ".$filenx."</a><br/>";
+											echo "<tr>";
+										    echo "<td width=70%'><a href='$link'><i class='material-icons' >video_library</i> ".$filenx."</a></td>";
+										    $result = mysqli_query($koneksi,"select *from learn where learntitle='$filenx'");
+											$row = mysqli_fetch_array($result);
+											$ownerid = $row['ownerid'];
+											$view = $row['watch'];
+											$result = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+											$row = mysqli_fetch_array($result);
+											$namaowner = $row['nama'];
+
+										    echo "<td>".$namaowner."</td>";
+										    echo "<td>".$view."</td>";
+										    echo "</tr>";
 										}
 									?>
+									</table>
 					    		</div>
 					  		</div>
 						</div>

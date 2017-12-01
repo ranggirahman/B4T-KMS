@@ -1,3 +1,9 @@
 - redeem reward
 - tambahkan album
 - error handling login
+
+
+reward :
+upload file +100
+upload video +250
+view +1
