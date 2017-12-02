@@ -93,6 +93,7 @@
 							  			$path = "user/learn/dokumen_penelitian/";
 							  		}
 
+							  		$learndir = $path;
 								    $path = $path . basename( $_FILES['uploaded_file']['name']);
 								    if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
 								      	echo "	<br><br>
@@ -105,7 +106,7 @@
 								      		";
 								      	$files = basename( $_FILES['uploaded_file']['name']);
 								      	$filenx = preg_replace("/\.[^.]+$/", "", $files);
-								      	$result = mysqli_query($koneksi,"insert into learn(learntitle,ownerid,watch) values ('$filenx','$username','0')");
+								      	$result = mysqli_query($koneksi,"insert into learn(learntitle,ownerid,learndir,watch) values ('$filenx','$username','$learndir','0')");
 
 								      	$reward = $reward + 250;			      	
 								      	$result = mysqli_query($koneksi,"update user set reward='$reward' where username='$username'");

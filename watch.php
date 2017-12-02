@@ -22,6 +22,7 @@
 	$row = mysqli_fetch_array($result);
 	$learnid = $row['learnid'];
 	$owner = $row['ownerid'];
+	$learndir = $row['learndir'];
 	$watch = $row['watch'];
 	$watch = $watch + 1;			      	
 	$result = mysqli_query($koneksi,"update learn set watch='$watch' where learntitle='$filenx'");
@@ -127,7 +128,7 @@
 					<hr>
 					<div class="row">
 						<div class='col-sm-2'>	
-							<img src='user/profile/<?php echo $username?>.jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle' height=70px' width='70px'/>									
+							<center><img src='user/profile/<?php echo $username?>.jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle' height=70px' width='70px'/></center>									
 						</div>
 						<div class='col-sm-10'>
 							<form action="watch.php?s=<?php echo "$comlink"?>" method="POST">
@@ -139,14 +140,35 @@
 					</div>
 		  		</div>	
 		  		<div class="col-sm-3">	 
-			  		<div class="card text-center">
-						<div class="card-body">
-						    <h4 class="card-title">Video By</h4>
+			  		<div class="card">
+			  			<div class="card-header">
+					    	<i class="material-icons" style="font-size: 20px;">person</i> Video By
+					  	</div>
+						<div class="card-body text-center">
 						   	<img src="user/profile/<?php echo $owner ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle border border-warning" height="100px" width="100px" /></a>
 						   	<br><br>
 							<h5><?php echo "$namaowner"; ?></h5>
 							<h5><?php echo "$divowner"; ?></h5>						
 						</div>
+					</div>
+					<br>
+					<div class="card">
+					  <div class="card-header">
+					    <i class="material-icons" style="font-size: 20px;">video_library</i> Similar Video
+					  </div>
+					  <ul class="list-group list-group-flush">
+					  	<?php			        	
+							$files = array_diff(scandir($learndir), array('..', '.'));	
+
+							foreach ($files as &$value) {
+								$filenx = preg_replace("/\.[^.]+$/", "", $value);
+								$tmpvalue = $username.'&'.$learndir.$value;
+								$envalue = base64_encode($tmpvalue);
+								$link = 'watch.php?s='.$envalue;
+							    echo "<li class='list-group-item'><a href='$link'>".$filenx."</a></li>";
+							}
+						?>
+					  </ul>
 					</div>
 				</div>	   	
 			</div>
