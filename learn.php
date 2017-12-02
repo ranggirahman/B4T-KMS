@@ -138,7 +138,7 @@
 						      	<div class="card-body">
 						      		<table class="table">
 						      			<tr>
-						      				<th>File Name</th>
+						      				<th>Video Name</th>
 						      				<th>Uploaded By</th>
 						      				<th>View</th>
 						      			</tr>
@@ -182,7 +182,7 @@
 							    <div class="card-body">
 							       	<table class="table">
 						      			<tr>
-						      				<th>File Name</th>
+						      				<th>Video Name</th>
 						      				<th>Uploaded By</th>
 						      				<th>View</th>
 						      			</tr>
@@ -226,7 +226,7 @@
 					      		<div class="card-body">
 					        		<table class="table">
 						      			<tr>
-						      				<th>File Name</th>
+						      				<th>Video Name</th>
 						      				<th>Uploaded By</th>
 						      				<th>View</th>
 						      			</tr>
@@ -270,7 +270,7 @@
 					      		<div class="card-body">
 					        		<table class="table">
 						      			<tr>
-						      				<th>File Name</th>
+						      				<th>Video Name</th>
 						      				<th>Uploaded By</th>
 						      				<th>View</th>
 						      			</tr>

@@ -1,5 +1,7 @@
-- redeem reward
-- tambahkan album
+- tambah komen pada learn
+- tambahkan page redeem reward
+- tambahkan page album
+- tambahkan page help
 - error handling login
 
 
@@ -7,3 +9,4 @@ reward :
 upload file +100
 upload video +250
 view +1
+comment learn + 50

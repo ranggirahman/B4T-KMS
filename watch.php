@@ -3,6 +3,8 @@
 
   	$s = $_GET['s'];
 
+  	$comlink = $s;
+
   	$temp = base64_decode($s);
 	$hs = (explode("&",$temp));
 	
@@ -18,6 +20,7 @@
 	
 	$result = mysqli_query($koneksi,"select *from learn where learntitle='$filenx'");
 	$row = mysqli_fetch_array($result);
+	$learnid = $row['learnid'];
 	$owner = $row['ownerid'];
 	$watch = $row['watch'];
 	$watch = $watch + 1;			      	
@@ -30,6 +33,10 @@
 	$rewardowner = $row['reward'];
 	$rewardowner = $rewardowner + 1;			      	
 	$result = mysqli_query($koneksi,"update user set reward='$rewardowner' where username='$owner'");
+
+	$co = mysqli_query($koneksi,"select count(learnid) from learn_response where learnid='$learnid'");
+	$cr = mysqli_fetch_array($co);
+    $cs = $cr['count(learnid)'];
 
 	$s = base64_encode($username);
 ?>
@@ -69,7 +76,7 @@
 	      	</div>
 	    </div>
 
-	   	<div class="container" style="padding-top: 50px;">
+	   	<div class="container" style="padding-top: 50px; padding-bottom: 50px;">
 	   		<div class="row">
 	   			<div class="col-sm-12">	   				
 		   			<nav aria-label="breadcrumb" role="navigation">
@@ -87,6 +94,49 @@
 					  	<source src="<?php echo "$learnfile" ?>" type="video/mp4">
 					  	Your browser does not support HTML5 video.
 					</video>
+					<hr>
+					<div class="row">
+						<div class="col-sm-2">
+							
+						</div>
+						<div class="col-sm-3">
+							<i class="material-icons" style="font-size: 20px;">remove_red_eye</i> <?php echo "$watch"; ?> Views
+						</div>						
+						<div class="col-sm-7">
+							<i class="material-icons" style="font-size: 20px;">comment</i> <?php echo "$cs"; ?> Comments
+						</div>
+					</div>
+					<?php
+						$result = mysqli_query($koneksi,"select *from learn_response where learnid='$learnid'");
+
+						if($result == TRUE){
+							while($key = mysqli_fetch_array($result,MYSQLI_BOTH)){
+								echo "<hr><div class='row'>
+										<div class='col-sm-2'>	
+											<center><img src='user/profile/".$key['resusername'].".jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle' height=70px' width='70px'/></center>									
+										</div>
+										<div class='col-sm-10'>	
+											<h5>".$key['resnama']."</h5>									
+											".$key['comment']."
+										</div>
+									</div>
+									";
+							}
+						}
+					?>
+					<hr>
+					<div class="row">
+						<div class='col-sm-2'>	
+							<img src='user/profile/<?php echo $username?>.jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle' height=70px' width='70px'/>									
+						</div>
+						<div class='col-sm-10'>
+							<form action="watch.php?s=<?php echo "$comlink"?>" method="POST">
+								<textarea class="form-control" rows="3" name="comment" placeholder="Add a Comment..." required></textarea>
+								<hr>
+								<input class="btn btn-success float-right" type="submit" name="submit" value="Post">
+							</form>							
+						</div>
+					</div>
 		  		</div>	
 		  		<div class="col-sm-3">	 
 			  		<div class="card text-center">
@@ -95,9 +145,7 @@
 						   	<img src="user/profile/<?php echo $owner ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle border border-warning" height="100px" width="100px" /></a>
 						   	<br><br>
 							<h5><?php echo "$namaowner"; ?></h5>
-							<h5><?php echo "$divowner"; ?></h5>
-							<hr>
-							<h5><?php echo "$watch"; ?> Views</h5>
+							<h5><?php echo "$divowner"; ?></h5>						
 						</div>
 					</div>
 				</div>	   	
@@ -112,3 +160,16 @@
 
 	</body>
 </html>
+
+<?php
+  if(isset($_POST['submit'])){
+
+    $comment= $_POST['comment'];
+    $result = mysqli_query($koneksi,"insert into learn_response(learnid,resusername,resnama,comment) values ('$learnid','$username','$nama','$comment')");
+
+    $reward = $reward + 50;			      	
+	$result = mysqli_query($koneksi,"update user set reward='$reward' where username='$username'");
+
+    echo "<meta http-equiv='refresh' content='0'>";
+  }
+?>
