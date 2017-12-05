@@ -1,12 +1,17 @@
-- tambah komen pada learn
 - tambahkan page redeem reward
 - tambahkan page album
 - tambahkan page help
 - error handling login
+- benerin table view width di setiap page
 
 
 reward :
 upload file +100
+
+form post +100
+reply post +50
+
 upload video +250
 view +1
-comment learn + 50
+add comment + 50
+

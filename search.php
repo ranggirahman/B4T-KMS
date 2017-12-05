@@ -46,7 +46,7 @@
 	      	</div>
 	    </div>
 
-	   	<div class="container" style="padding-top: 50px;">
+	   	<div class="container" style="padding-top: 50px; padding-bottom: 50px;">
 	   		<div class="row">
 	   			<div class="col-sm-12">	   				
 		   			<nav aria-label="breadcrumb" role="navigation">

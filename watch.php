@@ -3,8 +3,6 @@
 
   	$s = $_GET['s'];
 
-  	$comlink = $s;
-
   	$temp = base64_decode($s);
 	$hs = (explode("&",$temp));
 	
@@ -131,7 +129,7 @@
 							<center><img src='user/profile/<?php echo $username?>.jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle' height=70px' width='70px'/></center>									
 						</div>
 						<div class='col-sm-10'>
-							<form action="watch.php?s=<?php echo "$comlink"?>" method="POST">
+							<form action="" method="POST">
 								<textarea class="form-control" rows="3" name="comment" placeholder="Add a Comment..." required></textarea>
 								<hr>
 								<input class="btn btn-success float-right" type="submit" name="submit" value="Post">
@@ -156,19 +154,19 @@
 					  <div class="card-header">
 					    <i class="material-icons" style="font-size: 20px;">video_library</i> Similar Video
 					  </div>
-					  <ul class="list-group list-group-flush">
-					  	<?php			        	
-							$files = array_diff(scandir($learndir), array('..', '.'));	
+						<ul class="list-group list-group-flush">
+						  	<?php			        	
+								$files = array_diff(scandir($learndir), array('..', '.'));	
 
-							foreach ($files as &$value) {
-								$filenx = preg_replace("/\.[^.]+$/", "", $value);
-								$tmpvalue = $username.'&'.$learndir.$value;
-								$envalue = base64_encode($tmpvalue);
-								$link = 'watch.php?s='.$envalue;
-							    echo "<li class='list-group-item'><a href='$link'>".$filenx."</a></li>";
-							}
-						?>
-					  </ul>
+								foreach ($files as &$value) {
+									$filenx = preg_replace("/\.[^.]+$/", "", $value);
+									$tmpvalue = $username.'&'.$learndir.$value;
+									$envalue = base64_encode($tmpvalue);
+									$link = 'watch.php?s='.$envalue;
+								    echo "<li class='list-group-item'><a href='$link'>".$filenx."</a></li>";
+								}
+							?>
+						</ul>
 					</div>
 				</div>	   	
 			</div>
@@ -186,7 +184,7 @@
 <?php
   if(isset($_POST['submit'])){
 
-    $comment= $_POST['comment'];
+    $comment = mysql_real_escape_string($_POST['comment']);
     $result = mysqli_query($koneksi,"insert into learn_response(learnid,resusername,resnama,comment) values ('$learnid','$username','$nama','$comment')");
 
     $reward = $reward + 50;			      	
