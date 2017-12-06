@@ -49,89 +49,120 @@
 	      	</div>
 	    </div>
 
-	   	<div class="container" style="padding-top: 50px;">
-	   		<div class="row" >
-	   			<div class="col-sm-9">
-	   				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-					  	<div class="carousel-inner">
-					    	<div class="carousel-item active">
-					      		<img class="d-block w-100" src="img/slider/1.jpg" alt="First slide">
-					      		<div class="carousel-caption d-none d-md-block">
-								    <h3>Discovery New Knowledge</h3>
-								</div>
-					    	</div>
-					    	<div class="carousel-item">
-					      		<img class="d-block w-100" src="img/slider/2.jpg" alt="Second slide">
-					      		<div class="carousel-caption d-none d-md-block">
-								    <h3>Sharing The Knowledge</h3>
-								</div>
-					    	</div>
-					    	<div class="carousel-item">
-					      		<img class="d-block w-100" src="img/slider/3.jpg" alt="Third slide">
-					      		<div class="carousel-caption d-none d-md-block">
-								    <h3>Get Rewards</h3>
-								</div>
-					    	</div>
-					  	</div>
-					  	<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-					    	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					    	<span class="sr-only">Previous</span>
-					  	</a>
-					  	<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-					    	<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					    	<span class="sr-only">Next</span>
-					  	</a>
+	   	<div class="container" style="padding-top: 50px; padding-bottom: 50px;">
+	   		<div class="row">
+	   		<div class="col-sm-9">
+		   		<div class="row" >
+		   			<div class="col-sm-12">
+		   				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+						  	<div class="carousel-inner">
+						    	<div class="carousel-item active">
+						      		<img class="d-block w-100" src="img/slider/1.jpg" alt="First slide">
+						      		<div class="carousel-caption d-none d-md-block">
+									    <h3>Discovery New Knowledge</h3>
+									</div>
+						    	</div>
+						    	<div class="carousel-item">
+						      		<img class="d-block w-100" src="img/slider/2.jpg" alt="Second slide">
+						      		<div class="carousel-caption d-none d-md-block">
+									    <h3>Sharing The Knowledge</h3>
+									</div>
+						    	</div>
+						    	<div class="carousel-item">
+						      		<img class="d-block w-100" src="img/slider/3.jpg" alt="Third slide">
+						      		<div class="carousel-caption d-none d-md-block">
+									    <h3>Get Rewards</h3>
+									</div>
+						    	</div>
+						  	</div>
+						  	<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+						    	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    	<span class="sr-only">Previous</span>
+						  	</a>
+						  	<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+						    	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    	<span class="sr-only">Next</span>
+						  	</a>
+						</div>
+		   			</div>		   				   			
+		   		</div>
+		   		<br>
+		   		<div class="row">
+				    <div class="col-sm-4">
+					    <div class="card text-center">
+					      	<div class="card-body">
+					        	<i class="material-icons" style="font-size: 100px; color: limegreen;">local_library</i>
+					        	<hr>
+					        	<p class="card-text">Share Knowledge and Help Other Succeed</p>
+					        	<a href="filelib.php?s=<?php echo "$s"?>" class="btn btn-primary">File Library</a>
+					      	</div>
+					    </div>
+					</div>
+					<div class="col-sm-4">
+					    <div class="card text-center">
+					      	<div class="card-body">
+					        	<i class="material-icons" style="font-size: 100px; color: mediumvioletred;">ondemand_video</i>
+					        	<hr>
+					        	<p class="card-text">Connecting and Learn From Expert</p>
+					        	<a href="learn.php?s=<?php echo "$s"?>" class="btn btn-primary">Learning</a>
+					      	</div>
+					    </div>
+					</div>
+					<div class="col-sm-4">
+					    <div class="card text-center">
+					      	<div class="card-body">
+					        	<i class="material-icons" style="font-size: 100px; color: cornflowerblue;">group</i>
+					        	<hr>
+					        	<p class="card-text">Search and Follow Communities of Practice</p>
+					        	<a href="forum.php?s=<?php echo "$s"?>" class="btn btn-primary">Forum</a>
+					      	</div>
+					    </div>
+					</div>
+		   		</div>
+		   		<br>
+		   		<div class="row">
+					<div class="col-sm-4">
+					    <div class="card text-center">
+					      	<div class="card-body">
+					        	<i class="material-icons" style="font-size: 100px; color: tomato;">photo_size_select_actual</i>
+					        	<hr>
+					        	<p class="card-text">View Official Photo Documentation</p>
+					        	<a href="gallery.php?s=<?php echo "$s"?>" class="btn btn-primary">Gallery</a>
+					      	</div>
+					    </div>
+					</div>
+					<div class="col-sm-4">
+					    <div class="card text-center">
+					      	<div class="card-body">
+					        	<i class="material-icons" style="font-size: 100px; color: slateblue;">find_in_page</i>
+					        	<hr>
+					        	<p class="card-text">Find Useful Content in the Knowledge</p>
+					        	<a href="search.php?s=<?php echo "$linksearch"?>" class="btn btn-primary">Search</a>
+					      	</div>
+					    </div>
+					</div>
+					<div class="col-sm-4">
+					    <div class="card text-center">
+					      	<div class="card-body">
+					        	<i class="material-icons" style="font-size: 100px; color: orange;">stars</i>
+					        	<hr>
+					        	<p class="card-text">Redeem Your Reward Points to a Gift</p>
+					        	<a href="forum.php?s=<?php echo "$s"?>" class="btn btn-primary">Redeem</a>
+					      	</div>
+					    </div>
+					</div>
+		   		</div>				
+		  	</div>
+		  	<div class="col-sm-3">
+		  		<div class="col-sm-12">
+		  			<div class="card-header">
+				    	<i class="material-icons" style="font-size: 20px;">update</i> Updates
+				  	</div>
+	   				<div class="card">						
+						<a class="twitter-timeline" href="https://twitter.com/B4T_Bandung?ref_src=twsrc%5Etfw" data-height="1056" data-chrome="noheader,nofooter">Tweets by B4T_Bandung</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 					</div>
 	   			</div>
-	   			<div class="col-sm-3">
-	   				<div class="card">						
-						<a class="twitter-timeline" href="https://twitter.com/B4T_Bandung?ref_src=twsrc%5Etfw" data-height="519" data-chrome="noheader,nofooter">Tweets by B4T_Bandung</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-					</div>
-	   			</div>	   			
-	   		</div>
-	   		<br>
-	   		<div class="row">	
-			    <div class="col-sm-3">
-				    <div class="card text-center">
-				      	<div class="card-body">
-				        	<i class="material-icons" style="font-size: 100px; color: limegreen;">local_library</i>
-				        	<hr>
-				        	<p class="card-text">Share Knowledge and Help Other Succeed</p>
-				        	<a href="filelib.php?s=<?php echo "$s"?>" class="btn btn-primary">File Library</a>
-				      	</div>
-				    </div>
-				</div>
-				<div class="col-sm-3">
-				    <div class="card text-center">
-				      	<div class="card-body">
-				        	<i class="material-icons" style="font-size: 100px; color: mediumvioletred;">ondemand_video</i>
-				        	<hr>
-				        	<p class="card-text">Connecting and Learn From Expert</p>
-				        	<a href="learn.php?s=<?php echo "$s"?>" class="btn btn-primary">Learning</a>
-				      	</div>
-				    </div>
-				</div>
-				<div class="col-sm-3">
-				    <div class="card text-center">
-				      	<div class="card-body">
-				        	<i class="material-icons" style="font-size: 100px; color: orange;">group</i>
-				        	<hr>
-				        	<p class="card-text">Search and Follow Communities of Practice</p>
-				        	<a href="forum.php?s=<?php echo "$s"?>" class="btn btn-primary">Forum</a>
-				      	</div>
-				    </div>
-				</div>
-				<div class="col-sm-3">
-				    <div class="card text-center">
-				      	<div class="card-body">
-				        	<i class="material-icons" style="font-size: 100px; color: slateblue;">find_in_page</i>
-				        	<hr>
-				        	<p class="card-text">Find Useful Content in the Knowledge</p>
-				        	<a href="search.php?s=<?php echo "$linksearch"?>" class="btn btn-primary">Search</a>
-				      	</div>
-				    </div>
-				</div>
-				
+		  	</div>
 		  	</div>		   	
 		</div>
 

@@ -1,5 +1,6 @@
 <?php
   include "koneksi.php";
+  	ob_start();
 
   	$s = $_GET['s'];
 
@@ -84,46 +85,53 @@
 			   					foreach ($matches['0'] as $value) {
 			   						// filelib
 				   					$result = mysqli_query($koneksi,"select *from filelib where filename like'%$value%'");
-									
-
 									while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
 
-										 print_r($row['filename']); 
+										$link = $row['filedir'].$row['filename'];
+										echo "<tr>";
+									    echo "<td width=70%'><a href='$link'><i class='material-icons' >book</i> ".$row['filename']."</a></td>";
+										$ownerid = $row['ownerid'];
+										$result2 = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+										$row2 = mysqli_fetch_array($result2);
+										$namaowner = $row2['nama'];
 
-										foreach ($row as $value) {
-											echo "$value"."<br>";
-										}
+									    echo "<td>by ".$namaowner."</td>";
+									    echo "</tr>";
+
 									}
 
-									$link = $row['filedir'].$row['filename'];
-									echo "<tr>";
-								    echo "<td width=70%'><a href='$link'><i class='material-icons' >book</i> ".$row['filename']."</a></td>";
-									$ownerid = $row['ownerid'];
-									$result = mysqli_query($koneksi,"select *from user where username='$ownerid'");
-									$row = mysqli_fetch_array($result);
-									$namaowner = $row['nama'];
-
-								    echo "<td>by ".$namaowner."</td>";
-								    echo "</tr>";
-
-
-
 			   						// learn
-				   					$result = mysqli_query($koneksi,"select *from learn where learntitle like'%$value%'");
-									$row = mysqli_fetch_array($result);
+				   					$result = mysqli_query($koneksi,"select *from learn where learntitle like'%$value%'");								
+									while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
+										$tmpvalue = $username.'&'.$row['learndir'].$row['learntitle'].'.mp4';
+										$envalue = base64_encode($tmpvalue);
+										$link = 'watch.php?s='.$envalue;
+										echo "<tr>";
+									    echo "<td width=70%'><a href='$link'><i class='material-icons' >video_library</i> ".$row['learntitle']."</a></td>";
+										$ownerid = $row['ownerid'];
+										$result2 = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+										$row2 = mysqli_fetch_array($result2);
+										$namaowner = $row2['nama'];
 
-									$tmpvalue = $username.'&'.$row['learndir'].$row['learntitle'].'.mp4';
-									$envalue = base64_encode($tmpvalue);
-									$link = 'watch.php?s='.$envalue;
-									echo "<tr>";
-								    echo "<td width=70%'><a href='$link'><i class='material-icons' >video_library</i> ".$row['learntitle']."</a></td>";
-									$ownerid = $row['ownerid'];
-									$result = mysqli_query($koneksi,"select *from user where username='$ownerid'");
-									$row = mysqli_fetch_array($result);
-									$namaowner = $row['nama'];
+									    echo "<td>by ".$namaowner."</td>";
+									    echo "</tr>";
+									}
 
-								    echo "<td>by ".$namaowner."</td>";
-								    echo "</tr>";
+									$result = mysqli_query($koneksi,"select *from forum where forumtitle like'%$value%'");								
+									while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
+										$tmpvalue = $username.'&'.$row['forumtitle'];
+										$envalue = base64_encode($tmpvalue);
+										$link = 'post.php?s='.$envalue;
+										echo "<tr>";
+									    echo "<td width=70%'><a href='$link'><i class='material-icons' >chat_bubble</i> ".$row['forumtitle']."</a></td>";
+										$ownerid = $row['owner'];
+										$result2 = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+										$row2 = mysqli_fetch_array($result2);
+										$namaowner = $row2['nama'];
+
+									    echo "<td>by ".$namaowner."</td>";
+									    echo "</tr>";
+									}
 				   				}
 			   				}	
 			   			?>
@@ -150,7 +158,6 @@
 		$linksearch = base64_encode($searchtemp);
 
 		header("Location: search.php?s=$linksearch");
-
-		
+		ob_end_flush();		
 	}
 ?>								    	
