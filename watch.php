@@ -158,7 +158,7 @@
 						  	<?php			        	
 								$files = array_diff(scandir($learndir), array('..', '.'));	
 
-								foreach ($files as &$value) {
+								foreach ($files as $value) {
 									$filenx = preg_replace("/\.[^.]+$/", "", $value);
 									$tmpvalue = $username.'&'.$learndir.$value;
 									$envalue = base64_encode($tmpvalue);

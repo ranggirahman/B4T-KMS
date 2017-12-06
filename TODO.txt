@@ -3,6 +3,7 @@
 - tambahkan page help
 - error handling login
 - benerin table view width di setiap page
+- icon file video diluar href biar warna item
 
 
 reward :

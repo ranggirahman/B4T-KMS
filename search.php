@@ -1,14 +1,21 @@
 <?php
   include "koneksi.php";
 
-  $s = $_GET['s'];
+  	$s = $_GET['s'];
 
- 	$username = base64_decode($s);
+  	$temp = base64_decode($s);
+	$hs = (explode("&",$temp));
+	
+ 	$username = substr($hs['0'], 0);
+	$search = substr($hs['1'], 0);
+
  	$result = mysqli_query($koneksi,"select *from user where username='$username'");
 	$row = mysqli_fetch_array($result);
 
 	$nama = $row['nama'];
 	$reward = $row['reward'];
+
+	$s = base64_encode($username);
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +63,73 @@
 					  	</ol>
 					</nav>
 	   			</div>				
-		  	</div>		   	
+		  	</div>
+		  	<div class="row">
+	   			<div class="col-sm-12">   				
+		   			<form class="form-inline" action="" method="POST">
+				    	<input class="form-control mr-sm-2" name="search" placeholder="<?php echo "$search"?>" >
+				    	<input class="btn btn-success" type="submit" name="submit" value="Search">
+				  	</form>
+	   			</div>				
+		  	</div>
+		  	<div class="row">
+	   			<div class="col-sm-12">	
+	   				<table class="table">   				
+			   			<?php
+			   				if ($search != 'Find Here..') {
+			   					echo "<br>";
+			   					preg_match_all("/[a-zA-Z0-9]+/", $search, $matches);
+
+
+			   					foreach ($matches['0'] as $value) {
+			   						// filelib
+				   					$result = mysqli_query($koneksi,"select *from filelib where filename like'%$value%'");
+									
+
+									while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
+
+										 print_r($row['filename']); 
+
+										foreach ($row as $value) {
+											echo "$value"."<br>";
+										}
+									}
+
+									$link = $row['filedir'].$row['filename'];
+									echo "<tr>";
+								    echo "<td width=70%'><a href='$link'><i class='material-icons' >book</i> ".$row['filename']."</a></td>";
+									$ownerid = $row['ownerid'];
+									$result = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+									$row = mysqli_fetch_array($result);
+									$namaowner = $row['nama'];
+
+								    echo "<td>by ".$namaowner."</td>";
+								    echo "</tr>";
+
+
+
+			   						// learn
+				   					$result = mysqli_query($koneksi,"select *from learn where learntitle like'%$value%'");
+									$row = mysqli_fetch_array($result);
+
+									$tmpvalue = $username.'&'.$row['learndir'].$row['learntitle'].'.mp4';
+									$envalue = base64_encode($tmpvalue);
+									$link = 'watch.php?s='.$envalue;
+									echo "<tr>";
+								    echo "<td width=70%'><a href='$link'><i class='material-icons' >video_library</i> ".$row['learntitle']."</a></td>";
+									$ownerid = $row['ownerid'];
+									$result = mysqli_query($koneksi,"select *from user where username='$ownerid'");
+									$row = mysqli_fetch_array($result);
+									$namaowner = $row['nama'];
+
+								    echo "<td>by ".$namaowner."</td>";
+								    echo "</tr>";
+				   				}
+			   				}	
+			   			?>
+			   		</table>
+	   			</div>				
+		  	</div>
 		</div>
 
 
@@ -67,3 +140,17 @@
 
 	</body>
 </html>
+
+<?php
+	if(isset($_POST['submit'])){
+
+		$search = ($_POST['search']);
+
+		$searchtemp = $username.'&'.$search;
+		$linksearch = base64_encode($searchtemp);
+
+		header("Location: search.php?s=$linksearch");
+
+		
+	}
+?>								    	

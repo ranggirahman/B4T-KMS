@@ -9,6 +9,9 @@
 
 	$nama = $row['nama'];
 	$reward = $row['reward'];
+
+	$search = $username.'&'.'Find Here..';
+	$linksearch = base64_encode($search);
 ?>
 
 <!DOCTYPE html>
@@ -124,7 +127,7 @@
 				        	<i class="material-icons" style="font-size: 100px; color: slateblue;">find_in_page</i>
 				        	<hr>
 				        	<p class="card-text">Find Useful Content in the Knowledge</p>
-				        	<a href="search.php?s=<?php echo "$s"?>" class="btn btn-primary">Search</a>
+				        	<a href="search.php?s=<?php echo "$linksearch"?>" class="btn btn-primary">Search</a>
 				      	</div>
 				    </div>
 				</div>
