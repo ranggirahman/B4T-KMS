@@ -99,6 +99,7 @@
 							  			$path = "user/photo/dokumen_penelitian/";
 							  		}
 
+								    $orpath = $path;
 								    $path = $path . basename( $_FILES['uploaded_file']['name']);
 								    if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
 								      	echo "	<br>
@@ -110,7 +111,7 @@
 												</div>
 								      		";
 								      	$files = basename( $_FILES['uploaded_file']['name']);
-								      	$result = mysqli_query($koneksi,"insert into photo(photoname,ownerid,view) values ('$files','$username','0')");
+								      	$result = mysqli_query($koneksi,"insert into photo(photoname,photodir,ownerid,view) values ('$files','$orpath','$username','0')");
 
 								      	$reward = $reward + 100;			      	
 								      	$result = mysqli_query($koneksi,"update user set reward='$reward' where username='$username'");
@@ -265,7 +266,7 @@
 
 		<!-- The Modal -->
 		<div id="myModal" class="modal">
-		  	<span class="close">&times;</span>
+		  	<span class="closemodal">&times;</span>
 		 	<img class="modal-content" id="img01" width="400" height="auto">
 		  	<div id="caption"></div>
 		</div>

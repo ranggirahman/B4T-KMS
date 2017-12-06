@@ -28,6 +28,7 @@
 	    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
 	    <link rel="stylesheet" href="css/custom.min.css">
 	    <link rel="stylesheet" href="css/material-icons.css">
+	    <link rel="stylesheet" href="css/imagepop.css">
 	    <link rel="stylesheet" href="css/modification.css">
 	    <link href="css/jumbotron.css" rel="stylesheet">
 	    <link rel="icon" href="img/favicon.ico">
@@ -117,6 +118,7 @@
 									    echo "</tr>";
 									}
 
+									// forum
 									$result = mysqli_query($koneksi,"select *from forum where forumtitle like'%$value%'");								
 									while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
 										$tmpvalue = $username.'&'.$row['forumtitle'];
@@ -132,6 +134,22 @@
 									    echo "<td>by ".$namaowner."</td>";
 									    echo "</tr>";
 									}
+
+									// gallery
+									$result = mysqli_query($koneksi,"select *from photo where photoname like'%$value%'");								
+									while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
+										$filenx = preg_replace("/\.[^.]+$/", "", $row['photoname']);
+									    echo "	<div class='col-sm-3'>
+													<div class='card'>															
+														<img class='card-img-top' id='myImg' src='".$row['photodir']."".$row['photoname']."' alt='".$filenx."'>
+														<div class='card-body'>
+														   	<p class='card-text'>".$filenx."</p>
+														</div>
+													</div>
+												</div>
+									    ";
+
+									}
 				   				}
 			   				}	
 			   			?>
@@ -140,11 +158,18 @@
 		  	</div>
 		</div>
 
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+		  	<span class="closemodal">&times;</span>
+		 	<img class="modal-content" id="img01" width="400" height="auto">
+		  	<div id="caption"></div>
+		</div>
 
 	    <script src="js/jquery.min.js"></script>
 	    <script src="js/popper.min.js"></script>
 	    <script src="js/bootstrap.js"></script>
 	    <script src="js/custom.js"></script> 
+	    <script src="js/imagepop.js"></script> 
 
 	</body>
 </html>

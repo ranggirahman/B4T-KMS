@@ -98,6 +98,7 @@
 							  			$path = "user/filelib/dokumen_penelitian/";
 							  		}
 
+								    $orpath = $path;
 								    $path = $path . basename( $_FILES['uploaded_file']['name']);
 								    if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
 								      	echo "	<br>
@@ -109,7 +110,7 @@
 												</div>
 								      		";
 								      	$files = basename( $_FILES['uploaded_file']['name']);
-								      	$result = mysqli_query($koneksi,"insert into filelib(filename,ownerid,download) values ('$files','$username','0')");
+								      	$result = mysqli_query($koneksi,"insert into filelib(filename,filedir,ownerid,download) values ('$files','$orpath','$username','0')");
 
 								      	$reward = $reward + 100;			      	
 								      	$result = mysqli_query($koneksi,"update user set reward='$reward' where username='$username'");
