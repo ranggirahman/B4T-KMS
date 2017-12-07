@@ -107,7 +107,8 @@
 	    if($password1 != '' && $password1 == $password2){
 	    	$result = mysqli_query($koneksi,"update user set password='$password1' where username='$username'");
 	    }else{
-	    	// error 
+	    	$message = "Password not Correct";
+			echo "<script type='text/javascript'>alert('$message');</script>";
 	    }
 
 	    echo "<meta http-equiv='refresh' content='0'>";

@@ -1,5 +1,4 @@
 - tambahkan page help
-- error handling login
 - benerin table view width di setiap page
 
 reward :
@@ -14,7 +13,6 @@ add comment + 50
 
 test case :
 search : mesin panduan volvo google coding
-
 
 photoprofile cuma bisa jpg
 

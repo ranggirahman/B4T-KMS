@@ -102,7 +102,8 @@
 
         header("Location: main.php?s=$en");
     }else{
-    		// modal error
+    		$message = "Invalid Username or Password";
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
 
   }
