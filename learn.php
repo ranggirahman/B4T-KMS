@@ -77,7 +77,7 @@
 								  	<option value="4">Dokumen Penelitian</option>
 								</select>
 								<hr>
-							    <input class="btn float-right" type="submit" value="Upload"></input>											    
+							    <input class="btn btn-success float-right" type="submit" value="Upload"></input>											    
 							</form>
 							<?php
 							  	if(!empty($_FILES['uploaded_file']))
@@ -153,7 +153,7 @@
 											$envalue = base64_encode($tmpvalue);
 											$link = 'watch.php?s='.$envalue;
 											echo "<tr>";
-										    echo "<td width=70%'><a href='$link'><i class='material-icons' >video_library</i> ".$filenx."</a></td>";
+										    echo "<td width=70%'><i class='material-icons' style='color: tomato;' >video_library</i><a href='$link'> ".$filenx."</a></td>";
 										    $result = mysqli_query($koneksi,"select *from learn where learntitle='$filenx'");
 											$row = mysqli_fetch_array($result);
 											$ownerid = $row['ownerid'];
@@ -197,7 +197,7 @@
 											$envalue = base64_encode($tmpvalue);
 											$link = 'watch.php?s='.$envalue;
 											echo "<tr>";
-										    echo "<td width=70%'><a href='$link'><i class='material-icons' >video_library</i> ".$filenx."</a></td>";
+										    echo "<td width=70%'><i class='material-icons' style='color: tomato;' >video_library</i><a href='$link'> ".$filenx."</a></td>";
 										    $result = mysqli_query($koneksi,"select *from learn where learntitle='$filenx'");
 											$row = mysqli_fetch_array($result);
 											$ownerid = $row['ownerid'];
@@ -241,7 +241,7 @@
 											$envalue = base64_encode($tmpvalue);
 											$link = 'watch.php?s='.$envalue;
 											echo "<tr>";
-										    echo "<td width=70%'><a href='$link'><i class='material-icons' >video_library</i> ".$filenx."</a></td>";
+										    echo "<td width=70%'><i class='material-icons' style='color: tomato;' >video_library</i><a href='$link'> ".$filenx."</a></td>";
 										    $result = mysqli_query($koneksi,"select *from learn where learntitle='$filenx'");
 											$row = mysqli_fetch_array($result);
 											$ownerid = $row['ownerid'];
@@ -285,7 +285,7 @@
 											$envalue = base64_encode($tmpvalue);
 											$link = 'watch.php?s='.$envalue;
 											echo "<tr>";
-										    echo "<td width=70%'><a href='$link'><i class='material-icons' >video_library</i> ".$filenx."</a></td>";
+										    echo "<td width=70%'><i class='material-icons' style='color: tomato;' >video_library</i><a href='$link'> ".$filenx."</a></td>";
 										    $result = mysqli_query($koneksi,"select *from learn where learntitle='$filenx'");
 											$row = mysqli_fetch_array($result);
 											$ownerid = $row['ownerid'];

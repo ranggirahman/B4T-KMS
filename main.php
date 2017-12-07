@@ -41,7 +41,7 @@
 					    <div class="dropdown-menu">
 					    	<a class="dropdown-item disabled">Hi, <?php echo "$nama"; ?></a>
 					    	<div class="dropdown-divider"></div>
-					      	<a class="dropdown-item" href="#">Edit Profile</a>
+					      	<a class="dropdown-item" href="edit.php?s=<?php echo "$s"?>">Edit Profile</a>
 					      	<a class="dropdown-item" href="index.php">Logout</a>
 					    </div>
 					</li>
@@ -147,7 +147,7 @@
 					        	<i class="material-icons" style="font-size: 100px; color: orange;">stars</i>
 					        	<hr>
 					        	<p class="card-text">Redeem Your Reward Points to a Gift</p>
-					        	<a href="forum.php?s=<?php echo "$s"?>" class="btn btn-primary">Redeem</a>
+					        	<a href="redeem.php?s=<?php echo "$s"?>" class="btn btn-primary">Redeem</a>
 					      	</div>
 					    </div>
 					</div>
@@ -156,7 +156,7 @@
 		  	<div class="col-sm-3">
 		  		<div class="col-sm-12">
 		  			<div class="card-header">
-				    	<i class="material-icons" style="font-size: 20px;">update</i> Updates
+				    	<i class="material-icons" style="font-size: 22px;">update</i> Updates
 				  	</div>
 	   				<div class="card">						
 						<a class="twitter-timeline" href="https://twitter.com/B4T_Bandung?ref_src=twsrc%5Etfw" data-height="1056" data-chrome="noheader,nofooter">Tweets by B4T_Bandung</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

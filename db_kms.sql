@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2017 at 07:51 PM
+-- Generation Time: Dec 07, 2017 at 05:35 PM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -58,7 +58,7 @@ INSERT INTO `filelib` (`fileid`, `filename`, `filedir`, `ownerid`, `download`) V
 (17, 'Produksi Produkti Obs.pdf', 'user/filelib/praktik_kerja/', 'ranggi', 0),
 (19, 'Rekayasa Produk.pdf', 'user/filelib/praktik_kerja/', 'ranggi', 0),
 (20, 'Studi Lapangan Industri Pangan.pdf', 'user/filelib/praktik_kerja/', 'ranggi', 0),
-(21, 'emile-perron-190221.jpg', '', 'ranggi', 0);
+(22, 'Percobaan Ilmiah.pdf', 'user/filelib/panduan_kerja/', 'ranggi', 0);
 
 -- --------------------------------------------------------
 
@@ -83,7 +83,8 @@ INSERT INTO `forum` (`forumid`, `owner`, `forumtitle`, `category`, `forumcontent
 (2, 'ranggi', 'Test Post', 'Teknologi Informasi', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\r\nPellentesque vitae quam vitae magna euismod facilisis.\r\nNam quis eros viverra arcu elementum blandit.\r\nEtiam ac nulla non diam vehicula consequat in sed magna.\r\nMaecenas et odio vitae dui laoreet scelerisque a id massa.\r\nAenean in justo maximus, convallis odio ut, placerat odio.\r\nNullam non tellus pharetra, vehicula ex et, dapibus ligula.\r\nProin in dui ac urna viverra malesuada sed at lorem.\r\nMaecenas vitae eros non massa fermentum finibus auctor quis leo.\r\nIn nec leo vel augue cursus sodales.\r\nInteger eu nisi a nisi efficitur molestie at dignissim nisi.\r\nNam eu diam euismod, feugiat velit ac, pretium dui.\r\nCras pulvinar nisi ut consectetur sollicitudin.'),
 (3, 'ranggi', 'Read This !', 'Sistem Informasi', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don''t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you '),
 (4, 'ranggi', 'Mesin', 'Teknik Mesin', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don''t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn''t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,'),
-(5, 'ranggi', 'Pembukuan, Pemberkasan', 'Administrasi', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don''t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn''t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,');
+(5, 'ranggi', 'Pembukuan, Pemberkasan', 'Administrasi', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don''t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn''t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,'),
+(6, 'ranggi', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -129,10 +130,10 @@ CREATE TABLE `learn` (
 INSERT INTO `learn` (`learnid`, `learntitle`, `ownerid`, `learndir`, `description`, `watch`) VALUES
 (1, 'Google Glass How to Getting Started', 'ranggi', 'user/learn/panduan_kerja/', '', 232),
 (2, 'Introducing Glowforge - The 3D Laser Printer', 'ranggi', 'user/learn/praktik_kerja/', '', 1),
-(3, 'Volvo Trucks - The Epic Split feat. Van Damme', 'ranggi', 'user/learn/panduan_kerja/', '', 10),
+(3, 'Volvo Trucks - The Epic Split feat. Van Damme', 'ranggi', 'user/learn/panduan_kerja/', '', 11),
 (5, 'Social Media Platforms Are All Copycats', 'ranggi', 'user/learn/dokumen_penelitian/', '', 7),
 (6, 'Dolby Digital - HD Surround Sound Test', 'ranggi', 'user/learn/dokumentasi_kerja/', '', 0),
-(7, 'GALAXY S4 Official TVC - Group Play (Share Music)', 'ranggi', 'user/learn/panduan_kerja/', '', 61);
+(7, 'GALAXY S4 Official TVC - Group Play (Share Music)', 'ranggi', 'user/learn/panduan_kerja/', '', 63);
 
 -- --------------------------------------------------------
 
@@ -181,8 +182,8 @@ CREATE TABLE `photo` (
 --
 
 INSERT INTO `photo` (`photoid`, `photoname`, `photodir`, `ownerid`, `view`) VALUES
-(1, 'Panduan Tataletak.jpg', '', 'ranggi', 0),
-(3, 'Coding.jpg', '', 'ranggi', 0);
+(1, 'Coding.jpg', 'user/photo/panduan_kerja/', 'ranggi', 0),
+(2, 'Panduan Tataletak.jpg', 'user/photo/panduan_kerja/', 'ranggi', 0);
 
 -- --------------------------------------------------------
 
@@ -206,7 +207,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`username`, `usertype`, `password`, `division`, `nama`, `reward`) VALUES
 ('lingga', 2, 'lingga', 'Sistem Informasi', 'Lingga Setyagusti', 0),
 ('mela', 2, 'mela', 'Tata Usaha', 'Mela Dewi', 100),
-('ranggi', 2, 'ranggi', 'Teknologi Informasi', 'Ranggi Rahman', 10094);
+('ranggi', 2, 'ranggi', 'Teknologi Informasi', 'Ranggi Rahman', 5747);
 
 --
 -- Indexes for dumped tables
@@ -262,12 +263,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `filelib`
 --
 ALTER TABLE `filelib`
-  MODIFY `fileid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `fileid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `forum`
 --
 ALTER TABLE `forum`
-  MODIFY `forumid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `forumid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `forum_response`
 --
@@ -287,7 +288,7 @@ ALTER TABLE `learn_response`
 -- AUTO_INCREMENT for table `photo`
 --
 ALTER TABLE `photo`
-  MODIFY `photoid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `photoid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

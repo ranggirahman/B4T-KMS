@@ -61,7 +61,7 @@
 		  		<div class="col-sm-12">	 
 			  		<div class="card">
 						<div class="card-body">
-						    <h4 class="card-title">Upload</h4>
+						    <h4 class="card-title">Upload File</h4>
 						    <form class="form-inline" enctype="multipart/form-data" action="filelib.php?s=<?php echo "$s"?>" method="POST">
 						    	<div class="row">
 						    		<div class="col-sm-5">
@@ -79,7 +79,7 @@
 											  	<option value="3">Dokumentasi Kerja</option>
 											  	<option value="4">Dokumen Penelitian</option>
 											</select>
-									    	<input class="btn" type="submit" value="Upload"></input>
+									    	<input class="btn btn-success" type="submit" value="Upload"></input>
 										</div>	
 						    		</div>
 						    	</div>											    
@@ -154,7 +154,7 @@
 										$files = array_diff(scandir($path), array('..', '.'));
 										foreach ($files as &$value) {
 											echo "<tr>";
-										    echo "<td width=70%'><a href='".$path."".$value."' target='_black' ><i class='material-icons' >book</i> ".$value."</a></td>";
+										    echo "<td width=70%'><i class='material-icons' style='color: tomato;' >book</i><a href='".$path."".$value."' target='_black' > ".$value."</a></td>";
 										    $result = mysqli_query($koneksi,"select *from filelib where filename='$value'");
 											$row = mysqli_fetch_array($result);
 											$ownerid = $row['ownerid'];
@@ -190,7 +190,7 @@
 										$files = array_diff(scandir($path), array('..', '.'));
 										foreach ($files as &$value) {
 											echo "<tr>";
-										    echo "<td width=70%'><a href='".$path."".$value."' target='_black' ><i class='material-icons' >book</i> ".$value."</a></td>";
+										    echo "<td width=70%'><i class='material-icons' style='color: tomato;' >book</i><a href='".$path."".$value."' target='_black' > ".$value."</a></td>";
 										    $result = mysqli_query($koneksi,"select *from filelib where filename='$value'");
 											$row = mysqli_fetch_array($result);
 											$ownerid = $row['ownerid'];
@@ -226,7 +226,7 @@
 										$files = array_diff(scandir($path), array('..', '.'));
 										foreach ($files as &$value) {
 											echo "<tr>";
-										    echo "<td width=70%'><a href='".$path."".$value."' target='_black' ><i class='material-icons' >book</i> ".$value."</a></td>";
+										    echo "<td width=70%'><i class='material-icons' style='color: tomato;' >book</i><a href='".$path."".$value."' target='_black' > ".$value."</a></td>";
 										    $result = mysqli_query($koneksi,"select *from filelib where filename='$value'");
 											$row = mysqli_fetch_array($result);
 											$ownerid = $row['ownerid'];
@@ -262,7 +262,7 @@
 										$files = array_diff(scandir($path), array('..', '.'));
 										foreach ($files as &$value) {
 											echo "<tr>";
-										    echo "<td width=70%'><a href='".$path."".$value."' target='_black' ><i class='material-icons' >book</i> ".$value."</a></td>";
+										    echo "<td width=70%'><i class='material-icons' style='color: tomato;' >book</i><a href='".$path."".$value."' target='_black' > ".$value."</a></td>";
 										    $result = mysqli_query($koneksi,"select *from filelib where filename='$value'");
 											$row = mysqli_fetch_array($result);
 											$ownerid = $row['ownerid'];

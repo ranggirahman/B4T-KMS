@@ -62,7 +62,7 @@
 		  		<div class="col-sm-12">	 
 			  		<div class="card">
 						<div class="card-body">
-						    <h4 class="card-title">Upload</h4>
+						    <h4 class="card-title">Upload Image</h4>
 						    <form class="form-inline" enctype="multipart/form-data" action="gallery.php?s=<?php echo "$s"?>" method="POST">
 						    	<div class="row">
 						    		<div class="col-sm-5">
@@ -80,7 +80,7 @@
 											  	<option value="3">Dokumentasi Kerja</option>
 											  	<option value="4">Dokumen Penelitian</option>
 											</select>
-									    	<input class="btn" type="submit" value="Upload"></input>
+									    	<input class="btn btn-success" type="submit" value="Upload"></input>
 										</div>	
 						    		</div>
 						    	</div>											    
@@ -139,7 +139,7 @@
 						    <div class="card-header" role="tab" id="headingOne">
 						      	<h5 class="mb-0">
 						        	<a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						          		<i class="material-icons" >folder</i> Panduan Kerja
+						          		<i class="material-icons" >photo_album</i> Panduan Kerja
 						        	</a>
 						      	</h5>
 						    </div>
@@ -148,14 +148,26 @@
 						      		<div class="row">
 						      		<?php
 							        	$path = "user/photo/panduan_kerja/";							        	
-										$files = array_diff(scandir($path), array('..', '.'));								      	
+										$files = array_diff(scandir($path), array('..', '.'));																      	
 										foreach ($files as &$value) {
+											$result = mysqli_query($koneksi,"select ownerid from photo where photoname='$value'");		
+											$tempownerid = mysqli_fetch_array($result);
+
 											$filenx = preg_replace("/\.[^.]+$/", "", $value);
 											echo "	<div class='col-sm-3'>
 														<div class='card'>															
 															<img class='card-img-top' src='".$path."".$value."' alt='".$filenx."' onclick='modal(this)'>
 															<div class='card-body'>
-															   	<p class='card-text'>".$filenx."</p>
+																<table>
+																	<tr>
+																		<td>
+																			<img src='user/profile/".$tempownerid['ownerid'].".jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle' height=30px' width='30px'/>
+																		</td>
+																		<td>
+																			<p class='card-text'>&nbsp;&nbsp;".$filenx."</p>
+																		</td>
+																	</tr>
+																</table>																  
 															</div>
 														</div>
 													</div>
@@ -170,7 +182,7 @@
 					    	<div class="card-header" role="tab" id="headingTwo">
 					      		<h5 class="mb-0">
 					        		<a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-					          			<i class="material-icons" >folder</i> Praktik Kerja
+					          			<i class="material-icons" >photo_album</i> Praktik Kerja
 					        		</a>
 					      		</h5>
 					    	</div>
@@ -201,7 +213,7 @@
 					    	<div class="card-header" role="tab" id="headingThree">
 					      		<h5 class="mb-0">
 					        		<a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-					          			<i class="material-icons" >folder</i> Dokumentasi Kerja
+					          			<i class="material-icons" >photo_album</i> Dokumentasi Kerja
 					        		</a>
 					      		</h5>
 					    	</div>
@@ -232,7 +244,7 @@
 					    	<div class="card-header" role="tab" id="headingThree">
 					      		<h5 class="mb-0">
 					        		<a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-					          			<i class="material-icons" >folder</i> Dokumen Penelitian
+					          			<i class="material-icons" >photo_album</i> Dokumen Penelitian
 					        		</a>
 					      		</h5>
 					    	</div>

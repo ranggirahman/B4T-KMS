@@ -1,11 +1,6 @@
-- tambahkan page redeem reward
-- tambahkan page album
 - tambahkan page help
 - error handling login
 - benerin table view width di setiap page
-- icon file video diluar href biar warna item
-- image pop up di search blm jalan
-
 
 reward :
 upload file +100
@@ -19,4 +14,7 @@ add comment + 50
 
 test case :
 search : mesin panduan volvo google coding
+
+
+photoprofile cuma bisa jpg
 
