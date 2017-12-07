@@ -76,14 +76,15 @@
 		  	</div>
 		  	<div class="row">
 	   			<div class="col-sm-12">	
-	   				<table class="table">   				
+	   				  				
 			   			<?php
 			   				if ($search != 'Find Here..') {
 			   					echo "<br>";
 			   					preg_match_all("/[a-zA-Z0-9]+/", $search, $matches);
 
-
+			   					echo "<table class='table'>";
 			   					foreach ($matches['0'] as $value) {
+			   						
 			   						// filelib
 				   					$result = mysqli_query($koneksi,"select *from filelib where filename like'%$value%'");
 									while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
@@ -134,6 +135,14 @@
 									    echo "<td>by ".$namaowner."</td>";
 									    echo "</tr>";
 									}
+									
+																		
+								}
+								echo "</table>";
+								echo "<hr>";
+								echo "<div class='row'>";
+
+								foreach ($matches['0'] as $value) {									
 
 									// gallery
 									$result = mysqli_query($koneksi,"select *from photo where photoname like'%$value%'");								
@@ -141,7 +150,7 @@
 										$filenx = preg_replace("/\.[^.]+$/", "", $row['photoname']);
 									    echo "	<div class='col-sm-3'>
 													<div class='card'>															
-														<img class='card-img-top' id='myImg' src='".$row['photodir']."".$row['photoname']."' alt='".$filenx."'>
+														<img class='card-img-top' id='myImg' src='".$row['photodir']."".$row['photoname']."' alt='".$filenx."' onclick='modal(this)'>
 														<div class='card-body'>
 														   	<p class='card-text'>".$filenx."</p>
 														</div>
@@ -149,11 +158,11 @@
 												</div>
 									    ";
 
-									}
+									}									
 				   				}
+				   				echo "</div>";
 			   				}	
 			   			?>
-			   		</table>
 	   			</div>				
 		  	</div>
 		</div>
@@ -165,6 +174,7 @@
 		  	<div id="caption"></div>
 		</div>
 
+		
 	    <script src="js/jquery.min.js"></script>
 	    <script src="js/popper.min.js"></script>
 	    <script src="js/bootstrap.js"></script>

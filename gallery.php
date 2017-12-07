@@ -184,7 +184,7 @@
 											$filenx = preg_replace("/\.[^.]+$/", "", $value);
 											echo "	<div class='col-sm-3'>
 														<div class='card'>															
-															<img class='card-img-top' id='myImg' src='".$path."".$value."' alt='".$filenx."'>
+															<img class='card-img-top' id='myImg' src='".$path."".$value."' alt='".$filenx."' onclick='modal(this)'>
 															<div class='card-body'>
 															   	<p class='card-text'>".$filenx."</p>
 															</div>
@@ -215,7 +215,7 @@
 											$filenx = preg_replace("/\.[^.]+$/", "", $value);
 											echo "	<div class='col-sm-3'>
 														<div class='card'>															
-															<img class='card-img-top' id='myImg' src='".$path."".$value."' alt='".$filenx."'>
+															<img class='card-img-top' id='myImg' src='".$path."".$value."' alt='".$filenx."' onclick='modal(this)'>
 															<div class='card-body'>
 															   	<p class='card-text'>".$filenx."</p>
 															</div>
@@ -246,7 +246,7 @@
 											$filenx = preg_replace("/\.[^.]+$/", "", $value);
 											echo "	<div class='col-sm-3'>
 														<div class='card'>															
-															<img class='card-img-top' id='myImg' src='".$path."".$value."' alt='".$filenx."'>
+															<img class='card-img-top' id='myImg' src='".$path."".$value."' alt='".$filenx."' onclick='modal(this)'>
 															<div class='card-body'>
 															   	<p class='card-text'>".$filenx."</p>
 															</div>

@@ -89,7 +89,7 @@
 		   		<br>
 		   		<div class="row">
 				    <div class="col-sm-4">
-					    <div class="card text-center">
+					    <div class="card">
 					      	<div class="card-body">
 					        	<i class="material-icons" style="font-size: 100px; color: limegreen;">local_library</i>
 					        	<hr>
@@ -99,7 +99,7 @@
 					    </div>
 					</div>
 					<div class="col-sm-4">
-					    <div class="card text-center">
+					    <div class="card">
 					      	<div class="card-body">
 					        	<i class="material-icons" style="font-size: 100px; color: mediumvioletred;">ondemand_video</i>
 					        	<hr>
@@ -109,7 +109,7 @@
 					    </div>
 					</div>
 					<div class="col-sm-4">
-					    <div class="card text-center">
+					    <div class="card">
 					      	<div class="card-body">
 					        	<i class="material-icons" style="font-size: 100px; color: cornflowerblue;">group</i>
 					        	<hr>
@@ -122,7 +122,7 @@
 		   		<br>
 		   		<div class="row">
 					<div class="col-sm-4">
-					    <div class="card text-center">
+					    <div class="card">
 					      	<div class="card-body">
 					        	<i class="material-icons" style="font-size: 100px; color: tomato;">photo_size_select_actual</i>
 					        	<hr>
@@ -132,7 +132,7 @@
 					    </div>
 					</div>
 					<div class="col-sm-4">
-					    <div class="card text-center">
+					    <div class="card">
 					      	<div class="card-body">
 					        	<i class="material-icons" style="font-size: 100px; color: slateblue;">find_in_page</i>
 					        	<hr>
@@ -142,7 +142,7 @@
 					    </div>
 					</div>
 					<div class="col-sm-4">
-					    <div class="card text-center">
+					    <div class="card">
 					      	<div class="card-body">
 					        	<i class="material-icons" style="font-size: 100px; color: orange;">stars</i>
 					        	<hr>
