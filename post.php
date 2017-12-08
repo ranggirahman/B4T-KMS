@@ -1,4 +1,14 @@
 <?php
+/*************************************************
+* Filename    : post.php
+* Programmer  : Ranggi Rahman
+* Date        : 2017 - 11 - 28
+* Email       : ranggirahman@gmail.com
+* Website     : 1400707.blog.upi.edu
+* Deskripsi   : Forum Post View
+*
+**************************************************/
+
   include "koneksi.php";
 
   	$s = $_GET['s'];

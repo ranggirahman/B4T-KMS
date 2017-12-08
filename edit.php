@@ -1,5 +1,15 @@
 <?php
-  include "koneksi.php";
+/*************************************************
+* Filename    : edit.php
+* Programmer  : Ranggi Rahman
+* Date        : 2017 - 11 - 28
+* Email       : ranggirahman@gmail.com
+* Website     : 1400707.blog.upi.edu
+* Deskripsi   : User Profile Edit
+*
+**************************************************/
+
+  	include "koneksi.php";
 
   	$s = $_GET['s'];
 
@@ -132,24 +142,13 @@
 		}else{
 			$path = "user/profile/".$row['username'].".jpg";
 	    	if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
-				echo "<script type='text/javascript'>alert('$path');</script>";
-		      	echo "	<br>
-		        		<div class='alert alert-success alert-dismissible fade show' role='alert'>
-						  	Profile Photo ".  basename( $_FILES['uploaded_file']['name'])." has been updated
-						  	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-						    	<span aria-hidden='true'>&times;</span>
-						  	</button>
-						</div>
-		      		";
+	    		// success upload refresh cache
+	    		header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+				header("Pragma: no-cache"); // HTTP 1.0.
+				header("Expires: 0");				
 		    }else{
-		        echo "	<br>
-		        		<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-						  	There was an error uploading the photo, please try again!
-						  	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-						    	<span aria-hidden='true'>&times;</span>
-						  	</button>
-						</div>
-					";
+		    	$msg = "Problem with photo upload";
+		    	echo "<script type='text/javascript'>alert('$msg');</script>";
 		    }
 		}
 

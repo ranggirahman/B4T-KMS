@@ -1,4 +1,14 @@
 <?php
+/*************************************************
+* Filename    : main.php
+* Programmer  : Ranggi Rahman
+* Date        : 2017 - 11 - 28
+* Email       : ranggirahman@gmail.com
+* Website     : 1400707.blog.upi.edu
+* Deskripsi   : Main Page
+*
+**************************************************/
+
   	include "koneksi.php";
 
   	$s = $_GET['s'];
@@ -60,18 +70,21 @@
 						      		<img class="d-block w-100" src="img/slider/1.jpg" alt="First slide">
 						      		<div class="carousel-caption d-none d-md-block">
 									    <h3>Discovery New Knowledge</h3>
+									    <p>Temukan Pengetahuan dan Pengalaman Baru</p>
 									</div>
 						    	</div>
 						    	<div class="carousel-item">
 						      		<img class="d-block w-100" src="img/slider/2.jpg" alt="Second slide">
 						      		<div class="carousel-caption d-none d-md-block">
 									    <h3>Sharing The Knowledge</h3>
+									    <p>Bagikan Pengetahuan dan Pengalaman Anda</p>
 									</div>
 						    	</div>
 						    	<div class="carousel-item">
 						      		<img class="d-block w-100" src="img/slider/3.jpg" alt="Third slide">
 						      		<div class="carousel-caption d-none d-md-block">
 									    <h3>Get Rewards</h3>
+									    <p>Dan Dapatkan Penhargaan Setiap Kontribusi Anda !</p>
 									</div>
 						    	</div>
 						  	</div>

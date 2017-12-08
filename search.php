@@ -1,5 +1,16 @@
 <?php
-  include "koneksi.php";
+/*************************************************
+* Filename    : search.php
+* Programmer  : Ranggi Rahman
+* Date        : 2017 - 11 - 28
+* Email       : ranggirahman@gmail.com
+* Website     : 1400707.blog.upi.edu
+* Deskripsi   : Search Page with Result 
+*
+**************************************************/
+
+  	include "koneksi.php";
+
   	ob_start();
 
   	$s = $_GET['s'];
