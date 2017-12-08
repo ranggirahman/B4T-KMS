@@ -50,29 +50,44 @@
 
 	   	<div class="container" style="padding-top: 50px; padding-bottom: 50px;">
 	   		<div class="row">
+	   			<div class="col-sm-2">
+	   				
+	   			</div>
 	   			<div class="col-sm-8">
 		   			<div class="card">
 		   				<div class="card-header">
-		   					<h5><i class="material-icons" >person</i> Edit Profile</h5>
+		   					<i class="material-icons" >person</i> Edit Profile
 		   				</div>		   					
 			  			<div class="card-body">	
-			  				<form action="" method="POST">			  				
-			  					<table>
+			  				<form enctype="multipart/form-data" action="" method="POST">			  				
+			  					<table border="0">
 			  						<tr>
-				  						<td width="20%">Nama</td>
-				  						<td width="10%">:</td>
+			  							<td width="5%" rowspan="3"><img src="user/profile/<?php echo $username ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="100px" width="100px"/></td>
+			  							<td width="3%" rowspan="3"></td>
+				  						<td width="15%">Nama</td>
+				  						<td width="2%">:</td>
 				  						<td><input class="form-control" type="text" name="nama" value="<?php echo($nama) ?>"></td>
+				  						<td></td>
 				  					</tr>
 				  					<tr>
 				  						<td>Division</td>
 				  						<td>:</td>
 				  						<td><input class="form-control" type="text" name="division" value="<?php echo($division) ?>"></td>
+				  						<td></td>
 				  					</tr>
 				  					<tr>
 				  						<td>Password</td>
 				  						<td>:</td>
 				  						<td><input class="form-control" type="password" name="password1"></td>
 				  						<td><input class="form-control" type="password" name="password2"></td>
+				  					</tr>
+				  					<tr>
+				  						<td>
+				  							<input class="btn btn-sm" type="file" name="uploaded_file" style="width: 98%">
+				  						</td>
+				  						<td></td>
+				  						<td></td>
+				  						<td></td>
 				  					</tr>
 			  					</table>								
 			  			</div>
@@ -82,6 +97,9 @@
 						</div>
 					</div>
 				</div>
+				<div class="col-sm-2">
+	   				
+	   			</div>
 		  	</div>		  	
 		</div>
 
@@ -104,12 +122,42 @@
 
 	    $result = mysqli_query($koneksi,"update user set nama='$nama', division='$division' where username='$username'");
 
-	    if($password1 != '' && $password1 == $password2){
-	    	$result = mysqli_query($koneksi,"update user set password='$password1' where username='$username'");
-	    }else{
-	    	$message = "Password not Correct";
-			echo "<script type='text/javascript'>alert('$message');</script>";
+	    if($password1 != ''){
+	    	if($password1 == $password2){
+	    		$result = mysqli_query($koneksi,"update user set password='$password1' where username='$username'");
+			}else{
+		    	$message = "Password not Correct";
+				echo "<script type='text/javascript'>alert('$message');</script>";
+			}
 	    }
+
+	    if (empty($_FILES['uploaded_file']['name'])) {
+		    // No file was selected for upload, your (re)action goes here
+		}else{
+			$path = "user/profile/".$row['username'].".jpg";
+	    	if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+				echo "<script type='text/javascript'>alert('$path');</script>";
+		      	echo "	<br>
+		        		<div class='alert alert-success alert-dismissible fade show' role='alert'>
+						  	Profile Photo ".  basename( $_FILES['uploaded_file']['name'])." has been updated
+						  	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+						    	<span aria-hidden='true'>&times;</span>
+						  	</button>
+						</div>
+		      		";
+		    }else{
+		        echo "	<br>
+		        		<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+						  	There was an error uploading the photo, please try again!
+						  	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+						    	<span aria-hidden='true'>&times;</span>
+						  	</button>
+						</div>
+					";
+		    }
+		}
+
+	    
 
 	    echo "<meta http-equiv='refresh' content='0'>";
 	}
