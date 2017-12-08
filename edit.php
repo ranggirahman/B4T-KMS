@@ -65,19 +65,16 @@
 			  							<td width="5%" rowspan="3"><img src="user/profile/<?php echo $username ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="100px" width="100px"/></td>
 			  							<td width="3%" rowspan="3"></td>
 				  						<td width="15%">Nama</td>
-				  						<td width="2%">:</td>
 				  						<td><input class="form-control" type="text" name="nama" value="<?php echo($nama) ?>"></td>
 				  						<td></td>
 				  					</tr>
 				  					<tr>
 				  						<td>Division</td>
-				  						<td>:</td>
 				  						<td><input class="form-control" type="text" name="division" value="<?php echo($division) ?>"></td>
 				  						<td></td>
 				  					</tr>
 				  					<tr>
 				  						<td>Password</td>
-				  						<td>:</td>
 				  						<td><input class="form-control" type="password" name="password1"></td>
 				  						<td><input class="form-control" type="password" name="password2"></td>
 				  					</tr>
@@ -85,7 +82,6 @@
 				  						<td>
 				  							<input class="btn btn-sm" type="file" name="uploaded_file" style="width: 98%">
 				  						</td>
-				  						<td></td>
 				  						<td></td>
 				  						<td></td>
 				  					</tr>
