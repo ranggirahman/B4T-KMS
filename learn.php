@@ -40,7 +40,7 @@
 					    <div class="dropdown-menu">
 					    	<a class="dropdown-item disabled">Hi, <?php echo "$nama"; ?></a>
 					    	<div class="dropdown-divider"></div>
-					      	<a class="dropdown-item" href="#">Edit Profile</a>
+					      	<a class="dropdown-item" href="edit.php?s=<?php echo "$s"?>">Edit Profile</a>
 					      	<a class="dropdown-item" href="index.php">Logout</a>
 					    </div>
 					</li>

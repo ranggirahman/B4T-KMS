@@ -40,7 +40,7 @@
 					    <div class="dropdown-menu">
 					    	<a class="dropdown-item disabled">Hi, <?php echo "$nama"; ?></a>
 					    	<div class="dropdown-divider"></div>
-					      	<a class="dropdown-item" href="#">Edit Profile</a>
+					      	<a class="dropdown-item" href="edit.php?s=<?php echo "$s"?>">Edit Profile</a>
 					      	<a class="dropdown-item" href="index.php">Logout</a>
 					    </div>
 					</li>
@@ -62,28 +62,28 @@
 			  				<form enctype="multipart/form-data" action="" method="POST">			  				
 			  					<table border="0">
 			  						<tr>
-			  							<td width="5%" rowspan="3"><img src="user/profile/<?php echo $username ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="100px" width="100px"/></td>
-			  							<td width="3%" rowspan="3"></td>
+			  							<td width="3%" rowspan="4"></td>
+			  							<td width="5%" rowspan="4"><img src="user/profile/<?php echo $username ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="100px" width="100px"/><input class="btn btn-sm" type="file" name="uploaded_file" style="width: 98%"></td>
+			  							<td width="5%" rowspan="4"></td>
+			  							<td width="15%">Username</td>
+				  						<td><input class="form-control" type="text" name="nama" value="<?php echo($username)?>" disabled></td>
+				  						<td></td>
+				  						<td width="3%" rowspan="4"></td>
+			  						</tr>
+			  						<tr>
 				  						<td width="15%">Nama</td>
-				  						<td><input class="form-control" type="text" name="nama" value="<?php echo($nama) ?>"></td>
+				  						<td><input class="form-control" type="text" name="nama" value="<?php echo($nama)?>"></td>
 				  						<td></td>
 				  					</tr>
 				  					<tr>
 				  						<td>Division</td>
-				  						<td><input class="form-control" type="text" name="division" value="<?php echo($division) ?>"></td>
+				  						<td><input class="form-control" type="text" name="division" value="<?php echo($division)?>"></td>
 				  						<td></td>
 				  					</tr>
 				  					<tr>
 				  						<td>Password</td>
-				  						<td><input class="form-control" type="password" name="password1"></td>
-				  						<td><input class="form-control" type="password" name="password2"></td>
-				  					</tr>
-				  					<tr>
-				  						<td>
-				  							<input class="btn btn-sm" type="file" name="uploaded_file" style="width: 98%">
-				  						</td>
-				  						<td></td>
-				  						<td></td>
+				  						<td><input class="form-control" type="password" name="password1" placeholder="(tidak diubah)"></td>
+				  						<td><input class="form-control" type="password" name="password2" placeholder="(tidak diubah)"></td>
 				  					</tr>
 			  					</table>								
 			  			</div>
