@@ -1,6 +1,6 @@
 <?php
 /*************************************************
-* Filename    : index.php
+* Filename    : learn.php
 * Programmer  : Ranggi Rahman
 * Contributor : Lingga Setyagusti
 * Date        : 2017 - 11 - 28
